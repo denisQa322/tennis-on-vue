@@ -1,17 +1,19 @@
 <template>
   <div class="slider-wrapper">
     <TitleComponent
-      title="Тренерский состав"
+      :title="title"
       :showControls="true"
-      @arrowLeftCLickHandler="clickOnLeft()"
-      @arrowRightClickHandler="clickOnright()"
+      @arrowLeftClickHandler="clickOnLeft()"
+      @arrowRightClickHandler="clickOnRight()"
+      :disabledRight="this.offset >= this.maxSliderLineWidth"
+      :disabledLeft="!this.offset"
     />
     <div class="slider-items">
-      <SliderItemComponent
-        v-for="(item, index) in items"
-        :item="item"
-        :key="index"
-      />
+      <div class="slider-items-line" ref="sliderItems">
+        <template>
+          <slot></slot>
+        </template>
+      </div>
     </div>
   </div>
 </template>
@@ -29,21 +31,65 @@ import TitleComponent from "../Title.vue";
   props: {
     items: {
       type: Array as () => ISliderItem[],
+      required: false,
+      default: () => [],
+    },
+    title: {
+      type: String,
+      default: "Title",
+    },
+    itemsInSlider: {
+      type: Number,
       required: true,
-      default: [],
+      default: 1,
     },
   },
 })
 export default class SliderListComponent extends Vue {
-  // clickOnLeft() {}
-  // clickOnright() {}
+  offset = 0;
+  sliderItemWidth = 0;
+  gapCssProp = 0;
+  maxSliderLineWidth = 0;
+  mounted() {
+    const listElement: HTMLElement = this.$refs.sliderItems as HTMLElement;
+    this.sliderItemWidth = listElement.children[0].clientWidth;
+
+    this.maxSliderLineWidth =
+      this.sliderItemWidth *
+        (listElement.children.length - (this.$props.itemsInSlider - 1)) -
+      this.sliderItemWidth;
+
+    const gapCssProp = window
+      .getComputedStyle(listElement, null)
+      .getPropertyValue("gap");
+    this.gapCssProp = parseInt(gapCssProp);
+  }
+  clickOnRight() {
+    if (this.offset >= this.maxSliderLineWidth) {
+      return;
+    }
+    const listElement: HTMLElement = this.$refs.sliderItems as HTMLElement;
+    this.offset = this.offset + (this.gapCssProp + this.sliderItemWidth);
+    listElement.style.transform = `translateX(${-this.offset}px)`;
+  }
+  clickOnLeft() {
+    if (!this.offset) {
+      return;
+    }
+    const listElement: HTMLElement = this.$refs.sliderItems as HTMLElement;
+    this.offset = this.offset - (this.gapCssProp + this.sliderItemWidth);
+    listElement.style.transform = `translateX(${-this.offset}px)`;
+  }
 }
 </script>
 
 <style scoped lang="scss">
 .slider-items {
-  display: flex;
   overflow: hidden;
+}
+.slider-items-line {
+  transition: 0.5s;
+  display: flex;
   gap: 24px;
 }
 </style>

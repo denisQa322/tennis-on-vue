@@ -2,11 +2,11 @@
   <div class="title-wrapper">
     <h3 class="title">{{ title }}</h3>
     <div class="title-controls" v-if="showControls">
-      <button @click="arrowLeftCLickHandler()">
-        <img src="../assets/arrow-left.svg" alt="" />
+      <button :disabled="disabledLeft" @click="arrowLeftClickHandler()">
+        <img src="../assets/icons/arrow-left.svg" alt="" />
       </button>
-      <button @click="arrowRightCLickHandler()">
-        <img src="../assets/arrow-right.svg" alt="" />
+      <button :disabled="disabledRight" @click="arrowRightClickHandler()">
+        <img src="../assets/icons/arrow-right.svg" alt="" />
       </button>
     </div>
   </div>
@@ -25,14 +25,24 @@ import { Component, Vue } from "vue-property-decorator";
       type: Boolean,
       required: false,
     },
+    disabledLeft: {
+      type: Boolean,
+      default: false,
+    },
+    disabledRight: {
+      type: Boolean,
+      default: false,
+    },
   },
 })
 export default class TitleComponent extends Vue {
-  arrowLeftCLickHandler() {
-    this.$emit("arrowLeftCLickHandler");
+  disabledRight: boolean | undefined;
+  disabledLeft: boolean | undefined;
+  arrowLeftClickHandler() {
+    this.$emit("arrowLeftClickHandler");
   }
-  arrowRightCLickHandler() {
-    this.$emit("arrowRightCLickHandler");
+  arrowRightClickHandler() {
+    this.$emit("arrowRightClickHandler");
   }
 }
 </script>
@@ -56,6 +66,9 @@ export default class TitleComponent extends Vue {
       margin-left: 15px;
       &:first-child {
         margin-left: 0;
+      }
+      &[disabled] {
+        opacity: 0.5;
       }
     }
   }

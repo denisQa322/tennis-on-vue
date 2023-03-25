@@ -4,27 +4,16 @@
       <div class="topbar">
         <div class="topbar__logo">
           <router-link to="/">
-            <img src="../assets/tennis-logo.svg" alt="" />
+            <img src="../assets/icons/tennis-logo.svg" alt="" />
           </router-link>
         </div>
-        <div class="topbar-menu">
-          <ul class="topbar-menu__list">
-            <router-link tag="li" to="/">Главная</router-link>
-            <router-link tag="li" to="/about">О клубе</router-link>
-            <router-link tag="li" to="/tournaments">Турниры</router-link>
-            <router-link tag="li" to="/services">Услуги</router-link>
-            <router-link tag="li" to="/tennis">Детский теннис</router-link>
-            <router-link tag="li" to="/gallery">Галерея</router-link>
-            <router-link tag="li" to="/price-list">Цены</router-link>
-            <router-link tag="li" to="/contacts">Контакты</router-link>
-          </ul>
-        </div>
+        <MenuComponent />
         <div class="topbar-social">
           <a href="https://youtube.com">
-            <img src="../assets/youtube-icon.svg" alt="" />
+            <YouTubeLogoComponent />
           </a>
           <a href="https://vk.com">
-            <img src="../assets/vk-icon.svg" alt="" />
+            <VkLogoComponent />
           </a>
         </div>
       </div>
@@ -35,10 +24,16 @@
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
 import ContainerComponent from "./ContainerComponent.vue";
+import MenuComponent from "./MenuComponent.vue";
+import YouTubeLogoComponent from "@/assets/ui/YouTubeLogo.vue";
+import VkLogoComponent from "@/assets/ui/VkLogo.vue";
 
 @Component({
   components: {
     ContainerComponent,
+    MenuComponent,
+    YouTubeLogoComponent,
+    VkLogoComponent,
   },
 })
 export default class TopbarComponent extends Vue {}
@@ -46,7 +41,7 @@ export default class TopbarComponent extends Vue {}
 
 <style scoped lang="scss">
 #Topbar {
-  border-bottom: 1px solid #ccc;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
   position: absolute;
   width: 100%;
 }

@@ -4,7 +4,7 @@
     <div class="service-block__subtitle">
       <h4 class="service-block__description">{{ serviceBlock.description }}</h4>
       <router-link :to="serviceBlock.link"
-        ><img src="../assets/more-icon.svg" alt=""
+        ><img src="../assets/icons/more-icon.svg" alt=""
       /></router-link>
     </div>
   </div>
