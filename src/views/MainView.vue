@@ -79,6 +79,37 @@
         </SliderListComponent>
       </ContainerComponent>
     </section>
+    <section class="prices-block">
+      <ContainerComponent>
+        <div class="prices-wrapper">
+          <div class="prices">
+            <TitleComponent title="Цены и Абоненементы"> </TitleComponent>
+            <PricesComponent></PricesComponent>
+          </div>
+          <div class="prices-services-slider">
+            <SliderListComponent title="Услуги">
+              <div
+                class="prices-services"
+                v-for="(prices, index) in pricesItems"
+                :key="index"
+                :prices="prices"
+              >
+                <div
+                  class="prices-services-border"
+                  :style="{
+                    backgroundImage: 'url(' + prices.backgroundImageUrl + ')',
+                  }"
+                >
+                  <div class="prices-services-text">
+                    {{ prices.title }}
+                  </div>
+                </div>
+              </div>
+            </SliderListComponent>
+          </div>
+        </div>
+      </ContainerComponent>
+    </section>
   </div>
 </template>
 
@@ -91,6 +122,9 @@ import { ContainerType } from "@/components/ContainerComponent.vue";
 import CourtsInfoComponent from "@/components/CourtsInfoComponent.vue";
 import SliderListComponent from "@/components/Slider/SliderList.vue";
 import BoardComponent from "@/components/BoardComponent.vue";
+import TitleComponent from "@/components/Title.vue";
+import PricesComponent from "@/components/PricesComponent.vue";
+
 @Component({
   components: {
     ContainerComponent,
@@ -98,6 +132,8 @@ import BoardComponent from "@/components/BoardComponent.vue";
     CourtsInfoComponent,
     SliderListComponent,
     BoardComponent,
+    TitleComponent,
+    PricesComponent,
   },
 })
 export default class MainView extends Vue {
@@ -200,6 +236,20 @@ export default class MainView extends Vue {
         " Arcu elit massa amet turpis vel consequat pellentesque sit. ",
     },
   ];
+  pricesItems = [
+    {
+      backgroundImageUrl: require("../assets/images/services-slider-bg.jpg"),
+      title: "Уютное кафе",
+    },
+    {
+      backgroundImageUrl: require("../assets/images/services-slider-bg.jpg"),
+      title: "Уютное кафе",
+    },
+    {
+      backgroundImageUrl: require("../assets/images/services-slider-bg.jpg"),
+      title: "Уютное кафе",
+    },
+  ];
 }
 </script>
 
@@ -286,6 +336,41 @@ export default class MainView extends Vue {
         background-color: #8d86c9;
         left: -23px;
         top: 7px;
+      }
+    }
+  }
+}
+.prices-block {
+  margin-bottom: 150px;
+  .prices-wrapper {
+    display: flex;
+    .prices {
+      width: 526px;
+      margin-right: 134px;
+    }
+    .prices-services-slider {
+      width: 640px;
+      .prices-services {
+        border: 1px solid #f7ece1;
+        padding: 30px 25px;
+        min-width: 100%;
+        height: 330px;
+        &-border {
+          background-size: cover;
+          background-repeat: no-repeat;
+          background-position: center;
+          height: 270px;
+          width: 586px;
+          position: relative;
+        }
+        .prices-services-text {
+          position: absolute;
+          left: 40px;
+          bottom: 30px;
+          font-size: 27px;
+          color: white;
+          font-weight: 700;
+        }
       }
     }
   }

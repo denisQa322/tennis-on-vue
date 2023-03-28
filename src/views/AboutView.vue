@@ -5,36 +5,12 @@
     </header>
     <section class="about-slider">
       <ContainerComponent>
-        <SliderListComponent
-          title="Фото кортов"
-          v-for="(photo, index) in cortsPhotos"
-          :key="index"
-        >
-          <div class="about-item">
-            <div
-              class="about-item-image"
-              :style="{
-                backgroundImage: 'url(' + photo.backgroundImageUrl + ')',
-              }"
-            >
-              <router-link tag="a" :to="photo.routeUrl">
-                {{ photo.routeTitle }}
-              </router-link>
-            </div>
-          </div>
-          <div class="about-item">
-            <div
-              class="about-item-image"
-              :style="{
-                backgroundImage: 'url(' + photo.backgroundImageUrl + ')',
-              }"
-            >
-              <router-link tag="a" :to="photo.routeUrl">
-                {{ photo.routeTitle }}
-              </router-link>
-            </div>
-          </div>
-          <div class="about-item">
+        <SliderListComponent title="Фото кортов">
+          <div
+            class="about-item"
+            v-for="(photo, index) in cortsPhotos"
+            :key="index"
+          >
             <div
               class="about-item-image"
               :style="{
@@ -133,6 +109,16 @@ import { IRule } from "@/types/rule";
 export default class AboutView extends Vue {
   containerType = ContainerType;
   cortsPhotos = [
+    {
+      backgroundImageUrl: require("@/assets/images/about-slider-img.jpg"),
+      routeUrl: "/",
+      routeTitle: "Летний корт",
+    },
+    {
+      backgroundImageUrl: require("@/assets/images/about-slider-img.jpg"),
+      routeUrl: "/",
+      routeTitle: "Летний корт",
+    },
     {
       backgroundImageUrl: require("@/assets/images/about-slider-img.jpg"),
       routeUrl: "/",
