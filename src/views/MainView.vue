@@ -179,7 +179,35 @@ export default class MainView extends Vue {
       image: require("../assets/images/coach-one.jpg"),
       title: "Pulvinar aliquam",
       description:
-        " Arcu elit massa amet turpis vel consequat pellentesque sit. ",
+        "Arcu elit massa amet turpis vel consequat pellentesque sit.",
+    },
+    {
+      image: require("../assets/images/coach-two.jpg"),
+      title: "Pretium odio",
+      description:
+        "Bibendum aliquam volutpat nisl a duis in nisi. In sed commodo lorem morbi quis.",
+    },
+    {
+      image: require("../assets/images/coach-three.jpg"),
+      title: "Aliquet consectetur",
+      description: "Id sapien sed nibh fermentum massa posuere ipsum. Diam in.",
+    },
+    {
+      image: require("../assets/images/coach-four.jpg"),
+      title: "Blandit augue",
+      description:
+        "Scelerisque accumsan pretium justo, vitae elit. Dolor semper morbi sit auctor vel diam eros.",
+    },
+    {
+      image: require("../assets/images/coach-five.jpg"),
+      title: "Lorem lacus",
+      description:
+        "Adipiscing amet, viverra dignissim egestas. Sed nibh egestas venenatis faucibus.",
+    },
+    {
+      image: require("../assets/images/coach-six.jpg"),
+      title: "Sed erat",
+      description: "Quis ullamcorper pretium lacus risus tellus dolor etiam.",
     },
     {
       image: require("../assets/images/coach-one.jpg"),
@@ -188,52 +216,21 @@ export default class MainView extends Vue {
         " Arcu elit massa amet turpis vel consequat pellentesque sit. ",
     },
     {
-      image: require("../assets/images/coach-one.jpg"),
-      title: "Pulvinar aliquam",
+      image: require("../assets/images/coach-two.jpg"),
+      title: "Pretium odio",
       description:
-        " Arcu elit massa amet turpis vel consequat pellentesque sit. ",
+        "Bibendum aliquam volutpat nisl a duis in nisi. In sed commodo lorem morbi quis.",
     },
     {
-      image: require("../assets/images/coach-one.jpg"),
-      title: "Pulvinar aliquam",
-      description:
-        " Arcu elit massa amet turpis vel consequat pellentesque sit. ",
+      image: require("../assets/images/coach-three.jpg"),
+      title: "Aliquet consectetur",
+      description: "Id sapien sed nibh fermentum massa posuere ipsum. Diam in.",
     },
     {
-      image: require("../assets/images/coach-one.jpg"),
-      title: "Pulvinar aliquam",
+      image: require("../assets/images/coach-four.jpg"),
+      title: "Blandit augue",
       description:
-        " Arcu elit massa amet turpis vel consequat pellentesque sit. ",
-    },
-    {
-      image: require("../assets/images/coach-one.jpg"),
-      title: "Pulvinar aliquam",
-      description:
-        " Arcu elit massa amet turpis vel consequat pellentesque sit. ",
-    },
-    {
-      image: require("../assets/images/coach-one.jpg"),
-      title: "Pulvinar aliquam",
-      description:
-        " Arcu elit massa amet turpis vel consequat pellentesque sit. ",
-    },
-    {
-      image: require("../assets/images/coach-one.jpg"),
-      title: "Pulvinar aliquam",
-      description:
-        " Arcu elit massa amet turpis vel consequat pellentesque sit. ",
-    },
-    {
-      image: require("../assets/images/coach-one.jpg"),
-      title: "Pulvinar aliquam",
-      description:
-        " Arcu elit massa amet turpis vel consequat pellentesque sit. ",
-    },
-    {
-      image: require("../assets/images/coach-one.jpg"),
-      title: "Pulvinar aliquam",
-      description:
-        " Arcu elit massa amet turpis vel consequat pellentesque sit. ",
+        "Scelerisque accumsan pretium justo, vitae elit. Dolor semper morbi sit auctor vel diam eros.",
     },
   ];
   pricesItems = [

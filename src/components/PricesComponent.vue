@@ -11,7 +11,7 @@
           {{ price.text }}
         </div>
         <button class="price-item-arrow">
-          {{ price.pricesArrow }}
+          <img src="../assets/icons/arrow-left.svg" alt="" />
         </button>
       </router-link>
     </div>
@@ -25,27 +25,52 @@ import { Component, Vue } from "vue-property-decorator";
 export default class PricesComponent extends Vue {
   prices = [
     {
-      text: "Зимний сезон",
+      text: "Зимний сезон 2021-2022",
       pricesUrl: "/price-list",
-      pricesArrow: require("../assets/icons/arrow-left.svg"),
     },
     {
       text: "Абонементы",
       pricesUrl: "/price-list",
-      pricesArrow: require("../assets/icons/arrow-left.svg"),
     },
     {
       text: "Скидки",
       pricesUrl: "/price-list",
-      pricesArrow: require("../assets/icons/arrow-left.svg"),
     },
     {
       text: "Дополнительные услуги",
-      pricesUrl: "/price-list",
-      pricesArrow: require("../assets/icons/arrow-left.svg"),
+      pricesUrl: "/other",
     },
   ];
 }
 </script>
 
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+.prices {
+  height: 330px;
+  &-item {
+    background-color: #8d86c9;
+    padding: 18px 35px 18px 30px;
+    margin-bottom: 30px;
+    &:last-child {
+      margin-bottom: 0;
+    }
+    a {
+      font-size: 21px;
+      font-weight: 600;
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      button {
+        border: none;
+        background: none;
+        cursor: pointer;
+        img {
+          width: 18px;
+          height: 20px;
+        }
+      }
+    }
+  }
+}
+</style>
